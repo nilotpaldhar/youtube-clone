@@ -13,8 +13,11 @@ $videoUploadData = new VideoUploadData($_FILES['fileInput'], $_POST['titleInput'
 # Process video data (upload)
 $videoProcessor = new VideoProcessor($con);
 $wasSuccessfull = $videoProcessor->upload($videoUploadData);
-echo $wasSuccessfull;
+
 # 3) Check if upload was successful
+if ($wasSuccessfull) {
+  echo 'Video uploaded successfully';
+}
 
 require_once 'includes/footer.php';
 ?>

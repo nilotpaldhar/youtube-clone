@@ -8,4 +8,22 @@ echo $formProvider->createUploadForm();
 ?>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModal" aria-hidden="true" data-backdrop='static' data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        Please wait. This might take a while.
+        <img src="assets/images/icons/loading-spinner.gif" alt="Loading">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('form').submit(function() {
+     $('#loadingModal').modal('show');
+})
+</script>
 <?php require_once 'includes/footer.php';?>
