@@ -15,6 +15,11 @@ class VideoProcessor {
   }
 
   public function upload($videoUploadData) {
+    // Creating dircectory if not exists
+    if (!file_exists('uploads/videos/')) {
+      mkdir('uploads/');
+      mkdir('uploads/videos/');
+    }
     $targetDir = 'uploads/videos/';
     $videoData = $videoUploadData->getVideoDataArray();
 
@@ -130,8 +135,12 @@ class VideoProcessor {
   }
 
   public function generateThumbnails($filePath) {
-    $thumbnailSize    = '210x118';
-    $thumbnails       = 3;
+    $thumbnailSize = '210x118';
+    $thumbnails    = 3;
+    // Creating dircectory if not exists
+    if (!file_exists('uploads/videos/thumbnails')) {
+      mkdir('uploads/videos/thumbnails');
+    }
     $patchToThumbnail = 'uploads/videos/thumbnails';
 
     $duration = $this->getVideoDuration($filePath);
