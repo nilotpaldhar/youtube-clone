@@ -8,7 +8,7 @@ if (!isset($_POST['uploadButton'])) {
   exit();
 }
 # Create file upload data
-$videoUploadData = new VideoUploadData($_FILES['fileInput'], $_POST['titleInput'], $_POST['descriptionInput'], $_POST['categoryInput'], $_POST['privacyInput'], 'Nilotpal');
+$videoUploadData = new VideoUploadData($_FILES['fileInput'], $_POST['titleInput'], $_POST['descriptionInput'], $_POST['categoryInput'], $_POST['privacyInput'], $userLoggedInObj->getUsername());
 
 # Process video data (upload)
 $videoProcessor = new VideoProcessor($con);

@@ -6,4 +6,9 @@ $(document).ready(function() {
 		main.toggleClass('leftPadding');
 		sideNav.toggleClass('show');
 	});
+
+	// Initializing video player
+	const videoPlayer = new Plyr('#video-player', {
+		disableContextMenu: false
+	});
 });

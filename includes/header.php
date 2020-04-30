@@ -1,4 +1,11 @@
-<?php require_once 'includes/config.php';?>
+<?php
+require_once 'includes/config.php';
+require_once 'includes/classes/User.php';
+require_once 'includes/classes/Video.php';
+
+$usernameLoggedIn = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : 'Not Set';
+$userLoggedInObj  = new User($con, $usernameLoggedIn);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Youtube</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/video-player/plyr.css">
      <script src="assets/js/jquery/jquery-3.5.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/video-player/plyr.min.js"></script>
     <script src="assets/js/commonActions.js"></script>
 </head>
 <body>
