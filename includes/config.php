@@ -1,6 +1,8 @@
 <?php
 ob_start(); // Turns on output buffering
-date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('Asia/Kolkata'); // Setup default timezone;
+session_start(); // Start session
+
 // Database Credentials
 define('DB_TYPE', 'mysql'); // Database Type
 define('DB_NAME', 'php_youtube'); // Database Name

@@ -248,3 +248,9 @@ a:hover {
 .signInContainer .signInMessage:hover {
 	color: #095ce5;
 }
+
+.errorMessage {
+	text-align: left;
+	color: #ff3031;
+	font-weight: 500;
+}
