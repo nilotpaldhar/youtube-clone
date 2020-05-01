@@ -3,7 +3,7 @@ require_once 'includes/config.php';
 require_once 'includes/classes/User.php';
 require_once 'includes/classes/Video.php';
 
-$usernameLoggedIn = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : 'Not Set';
+$usernameLoggedIn = User::isLoggedIn() ? $_SESSION['userLoggedIn'] : 'Not Set';
 $userLoggedInObj  = new User($con, $usernameLoggedIn);
 ?>
 

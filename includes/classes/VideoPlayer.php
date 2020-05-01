@@ -16,10 +16,12 @@ class VideoPlayer {
     $filePath = $this->video->getFilePath();
 
     return "
-        <video id='video-player' controls $autoplay>
-          <source src='$filePath' type='video/mp4'>
-          Your browser does not support the video tag
-        </video>
+        <div class='videoPlayer-container'>
+          <video id='video-player' controls $autoplay>
+            <source src='$filePath' type='video/mp4'>
+            Your browser does not support the video tag
+          </video>
+        </div>
     ";
   }
 }

@@ -4,7 +4,7 @@ class VideoProcessor {
 
   private $con;
   private $sizeLimit   = 500000000; // 500mb
-  private $allowedType = ['mp4', 'flv', 'webm', 'mkv', 'vob', 'ogv', 'ogg', 'avi', 'wmv', 'mov', 'mpeg', 'mpg'];
+  private $allowedType = ['mp4', 'mp3', 'flv', 'webm', 'mkv', 'vob', 'ogv', 'ogg', 'avi', 'wmv', 'mov', 'mpeg', 'mpg'];
   private $ffmpegPath;
   private $ffprovePath;
 

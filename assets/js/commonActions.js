@@ -12,3 +12,7 @@ $(document).ready(function() {
 		disableContextMenu: false
 	});
 });
+
+function notSignedIn() {
+	$('#signInAlert').modal('show');
+}

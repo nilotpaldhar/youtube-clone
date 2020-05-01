@@ -255,17 +255,54 @@ a:hover {
 	font-weight: 500;
 }
 
-.watchLeftColumn {
+.videoPlayer-container {
+	width: 100%;
+	height: 75vh;
+}
+
+.videoInfo {
+	width: 100%;
+	padding: 20px 0 8px 0;
+}
+
+.videoInfo h1 {
+	display: block;
+	overflow: hidden;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.videoInfo .bottomSection {
+	display: flex;
+}
+
+.videoInfo .viewCount {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 16px;
 	flex: 1;
 }
 
-.watchLeftColumn .videoPlayer {
-	width: 100%;
+.videoInfo .controls {
+	display: flex;
+	text-align: right;
 }
 
-.suggestions {
-	max-width: 425px;
-	flex-grow: 1;
-	height: 100%;
-	padding-left: 24px;
+.videoInfo .likeButton,
+.videoInfo .disLikeButton {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	color: rgba(17, 17, 17, 0.6);
+	font-weight: 500;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.videoInfo .likeButton img,
+.videoInfo .disLikeButton img {
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	margin: 4px 8px 8px 8px;
 }
