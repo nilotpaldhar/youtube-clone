@@ -22,6 +22,8 @@ $userLoggedInObj  = new User($con, $usernameLoggedIn);
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="assets/video-player/plyr.min.js"></script>
     <script src="assets/js/commonActions.js"></script>
+    <script src="assets/js/userActions.js"></script>
+
 </head>
 <body>
 

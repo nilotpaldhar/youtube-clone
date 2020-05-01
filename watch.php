@@ -13,7 +13,6 @@ $video->incrementViews();
 ?>
 <script src="assets/js/videoPlayerActions.js"></script>
 
-
  <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">

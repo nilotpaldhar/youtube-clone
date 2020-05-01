@@ -154,6 +154,10 @@ a:hover {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.profilePicture {
+	height: 100%;
+}
+
 /* Sign Up Page styling */
 .signInContainer {
 	background-color: #efefee;
@@ -262,7 +266,7 @@ a:hover {
 
 .videoInfo {
 	width: 100%;
-	padding: 20px 0 8px 0;
+	padding: 20px 0 15px 0;
 }
 
 .videoInfo h1 {
@@ -305,4 +309,88 @@ a:hover {
 	width: 20px;
 	display: inline-block;
 	margin: 4px 8px 8px 8px;
+}
+
+.secondaryInfo {
+	border-bottom: 1px solid #dedede;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.secondaryInfo .topRow {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 12px;
+}
+
+.secondaryInfo .profilePicture {
+	margin-right: 16px;
+	height: 48px;
+	width: 48px;
+	border-radius: 50%;
+}
+
+.secondaryInfo .uploadInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.secondaryInfo .owner a {
+	font-size: 14px;
+	font-weight: 500;
+	color: #000;
+}
+
+.secondaryInfo .date {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.secondaryInfo .subscribeButtonContainer,
+.secondaryInfo .editVideoButonContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.secondaryInfo .button {
+	padding: 6px 15px;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 14px;
+	border-radius: 2px;
+	border: none;
+	transition: all 0.3s ease-in-out;
+}
+
+.secondaryInfo .button:focus,
+.secondaryInfo .button:active,
+.secondaryInfo .button:hover {
+	outline: none;
+	opacity: 0.9;
+}
+
+.subscribeButtonContainer .subscribe {
+	background-color: rgb(204, 0, 0);
+	color: #fff;
+}
+
+.subscribeButtonContainer .unsubscribe {
+	background-color: #eee;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.editVideoButonContainer .edit {
+	background-color: #2692e6;
+	color: #fff;
+}
+
+.secondaryInfo .descriptionContainer {
+	margin-left: 64px;
+	max-width: 615px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 21px;
 }
