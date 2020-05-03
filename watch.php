@@ -18,7 +18,7 @@ $video->incrementViews();
 
  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-xl-8">
         <?php $videoPlayer = new VideoPlayer($video);?>
         <?php echo $videoPlayer->create(true); ?>
 
@@ -28,7 +28,12 @@ $video->incrementViews();
         <?php $commentSection = new CommentSection($con, $video, $userLoggedInObj);?>
         <?php echo $commentSection->create(); ?>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-xl-4 mt-md-3 mt-xl-0">
+        <div class="suggestions">
+          <?php $videoGrid = new VideoGrid($con, $userLoggedInObj);?>
+          <?php echo $videoGrid->create(null, null, false); ?>
+        </div>
+      </div>
     </div>
   </div>
 
