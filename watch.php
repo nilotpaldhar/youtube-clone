@@ -2,6 +2,8 @@
 require_once 'includes/header.php';
 require_once 'includes/classes/VideoPlayer.php';
 require_once 'includes/classes/VideoInfoSection.php';
+require_once 'includes/classes/Comment.php';
+require_once 'includes/classes/CommentSection.php';
 
 if (!isset($_GET['id'])) {
   header('Location: index.php');
@@ -12,6 +14,7 @@ $video = new Video($con, $_GET['id'], $userLoggedInObj);
 $video->incrementViews();
 ?>
 <script src="assets/js/videoPlayerActions.js"></script>
+<script src="assets/js/commentActions.js"></script>
 
  <div class="container-fluid">
     <div class="row">
@@ -21,6 +24,9 @@ $video->incrementViews();
 
         <?php $VideoInfoSection = new VideoInfoSection($con, $video, $userLoggedInObj);?>
         <?php echo $VideoInfoSection->create(); ?>
+
+        <?php $commentSection = new CommentSection($con, $video, $userLoggedInObj);?>
+        <?php echo $commentSection->create(); ?>
       </div>
       <div class="col-md-4"></div>
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/classes/User.php';
+require_once 'User.php';
 
 class ButtonProvider {
 

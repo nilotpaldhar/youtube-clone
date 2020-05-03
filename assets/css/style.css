@@ -144,6 +144,8 @@ a:hover {
 #mainContentContainer {
 	padding: 10px 30px;
 	display: flex;
+	background-color: #fafafa;
+	box-sizing: border-box;
 }
 
 .column {
@@ -393,4 +395,165 @@ a:hover {
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 21px;
+}
+
+.commentSection .header {
+	margin-top: 24px;
+	margin-bottom: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.commentSection .commentCount {
+	margin-bottom: 24px;
+}
+
+.commentSection .commentForm {
+	display: flex;
+	align-items: center;
+}
+
+.commentSection .commentForm.hidden {
+	display: none;
+}
+
+.commentSection .profilePicture {
+	height: 48px;
+	width: 48px;
+	margin-right: 16px;
+	border-radius: 50%;
+}
+
+.commentSection .commentForm textarea {
+	flex: 1;
+	background-color: transparent;
+	font-size: 14px;
+	color: #111;
+	resize: none;
+	padding: 10px 10px;
+	border-radius: 2px;
+	border-color: #ccc;
+	margin-right: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.commentSection .commentForm textarea:focus,
+.commentSection .commentForm textarea:active {
+	outline: none;
+	border-color: #2692e6;
+}
+
+.itemContainer .commentForm textarea {
+	height: 40px;
+	resize: auto;
+	overflow-y: hidden;
+}
+
+.commentSection .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
+	align-self: flex-start;
+	background-color: #2692e6;
+	color: #fff;
+	font-weight: 500;
+	border: none;
+	padding: 0 15px;
+	border-radius: 2px;
+	height: 34px;
+	transition: all 0.3s ease-in-out;
+}
+
+.commentSection .commentForm .postComment:focus,
+.commentSection .commentForm .postComment:active,
+.commentSection .commentForm .postComment:hover {
+	outline: none;
+	opacity: 0.9;
+}
+
+.itemContainer .commentForm .cancelComment {
+	background-color: transparent;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .commentForm .cancelComment:active,
+.itemContainer .commentForm .cancelComment:focus,
+.itemContainer .commentForm .cancelComment:hover {
+	color: #000;
+}
+
+.commentSection .itemContainer {
+	margin-bottom: 16px;
+}
+
+.commentSection .comment {
+	display: flex;
+}
+
+.commentSection .commentHeader {
+	margin-bottom: 2px;
+}
+.commentSection .commentHeader .username {
+	margin-right: 8px;
+	color: #111;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.commentSection .body {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.commentSection .controls {
+	margin-left: 64px;
+	margin-bottom: 5px;
+}
+
+.commentSection .text {
+	font-size: 14px;
+}
+
+.commentSection .controls button,
+.commentSection .controls .likesCount {
+	height: 32px;
+	background-color: transparent;
+	font-weight: 500;
+	color: rgba(17, 17, 17, 0.6);
+	border: none;
+	margin-right: 10px;
+}
+
+.commentSection .controls button {
+	cursor: pointer;
+}
+
+.commentSection .controls .likesCount {
+	margin: 0 5px;
+}
+
+.commentSection .controls button img {
+	height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+	height: 30px;
+	width: 30px;
+}
+
+.itemContainer .commentHeader .timestamp {
+	font-size: 13px;
+	color: #888;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.comments .repliesSection {
+	padding-left: 64px;
+	margin-top: 16px;
+}
+
+.commentSection .itemContainer .viewReplies {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
 }
