@@ -5,6 +5,7 @@ require_once 'includes/classes/ButtonProvider.php';
 require_once 'includes/classes/Video.php';
 require_once 'includes/classes/VideoGrid.php';
 require_once 'includes/classes/VideoGridItem.php';
+require_once 'includes/classes/SubscriptionsProvider.php';
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION['userLoggedIn'] : 'Not Set';
 $userLoggedInObj  = new User($con, $usernameLoggedIn);
