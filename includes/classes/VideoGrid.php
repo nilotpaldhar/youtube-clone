@@ -61,12 +61,48 @@ class VideoGrid {
   public function createGridHeader($title, $showFilter) {
     $filter = '';
 
+    if ($showFilter) {
+      $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? $link = "https" : $link = "http";
+      // Here append the common URL characters.
+      $link .= "://";
+      // Append the host(domain name, ip) to the URL.
+      $link .= $_SERVER['HTTP_HOST'];
+      // Append the requested resource location to the URL
+      $link .= $_SERVER['REQUEST_URI'];
+
+      // Parsing url into an array
+      $urlArray = parse_url($link);
+      // Get the query from the url
+      $query = $urlArray['query'];
+      // Parse the query into string
+      parse_str($query, $params);
+      unset($params['orderBy']);
+
+      $newQuery = http_build_query($params);
+      $newUrl   = basename($_SERVER["PHP_SELF"]) . '?' . $newQuery;
+
+      // Set up filter
+      $filter = "
+        <div class='right'>
+          <span>Order by:</span>
+          <a href='$newUrl&orderBy=uploadDate'>Upload Date</a>
+          <a href='$newUrl&orderBy=views'>Most Viewed</a>
+        </div>
+      ";
+    }
+
     return "
       <div class='videoGridHeader'>
         <div class='left'>$title</div>
         $filter
       </div>
     ";
+  }
+
+  public function createLarge($videos, $title, $showFilter) {
+    $this->gridClass .= ' large';
+    $this->largeMode = true;
+    return $this->create($videos, $title, $showFilter);
   }
 
 }
