@@ -4,7 +4,12 @@ $(document).ready(function() {
 		var main = $('#mainSectionContainer');
 		var sideNav = $('#sideNavContainer');
 		main.toggleClass('leftPadding');
-		sideNav.toggleClass('show');
+		sideNav.toggleClass(function() {
+			$(this)
+				.children()
+				.toggleClass('show');
+			return 'show';
+		});
 	});
 
 	// Initializing video player

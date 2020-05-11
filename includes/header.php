@@ -6,6 +6,7 @@ require_once 'includes/classes/Video.php';
 require_once 'includes/classes/VideoGrid.php';
 require_once 'includes/classes/VideoGridItem.php';
 require_once 'includes/classes/SubscriptionsProvider.php';
+require_once 'includes/classes/NavigationMenuProvider.php';
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION['userLoggedIn'] : 'Not Set';
 $userLoggedInObj  = new User($con, $usernameLoggedIn);
@@ -51,11 +52,14 @@ $userLoggedInObj  = new User($con, $usernameLoggedIn);
                 <a href="upload.php">
                     <img class='upload' src="assets/images/icons/upload.png" alt="Upload">
                 </a>
-                <a href="#">
-                    <img class='upload' src="assets/images/profilePictures/default.png" alt="Profile Picture">
-                </a>
+                <?php echo ButtonProvider::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername()); ?>
             </div>
         </div>
-        <div id="sideNavContainer"></div>
+
+        <div id="sideNavContainer">
+            <?php $navigationProvider = new NavigationMenuProvider($con, $userLoggedInObj);?>
+            <?php echo $navigationProvider->create(); ?>
+        </div>
+
         <div id="mainSectionContainer">
             <div id="mainContentContainer">

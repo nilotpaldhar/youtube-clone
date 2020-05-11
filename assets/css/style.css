@@ -132,6 +132,54 @@ a:hover {
 	width: 240px;
 }
 
+#sideNavContainer .navigationItems {
+	overflow-y: auto;
+	opacity: 0;
+	transition: opacity 0.1s ease-in-out;
+}
+
+#sideNavContainer .navigationItems.show {
+	opacity: 1;
+	transition: opacity 0.1s ease-in-out 0.4s;
+}
+
+#sideNavContainer .navigationItem {
+	height: 40px;
+	display: flex;
+}
+
+#sideNavContainer .navigationItem img {
+	height: 18px;
+	margin-right: 27px;
+}
+
+#sideNavContainer .navigationItem span {
+	flex: 1;
+	color: #111;
+	font-size: 14px;
+}
+
+#sideNavContainer .navigationItem a {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	padding: 0 24px;
+	transition: background-color 0.2s ease-in-out;
+}
+
+#sideNavContainer .navigationItem a:hover {
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
+#sideNavContainer .heading {
+	display: block;
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px 24px 0;
+	border-top: 1px solid #ededed;
+}
+
 #mainSectionContainer {
 	padding-top: 56px;
 	transition: padding 0.4s ease-in-out;
@@ -158,6 +206,22 @@ a:hover {
 
 .profilePicture {
 	height: 100%;
+}
+
+.signInLink,
+.signInLink:link,
+.signInLink:visited {
+	background-color: rgb(204, 0, 0);
+	color: #fff;
+	font-size: 14px;
+	padding: 6px 8px;
+	border-radius: 2px;
+	margin-left: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.signInLink:hover {
+	opacity: 0.8;
 }
 
 /* Sign Up Page styling */
