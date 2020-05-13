@@ -1,5 +1,11 @@
-<?php require_once 'includes/header.php';?>
-<?php require_once 'includes/classes/VideoDetailsFormProvider.php';?>
+<?php
+require_once 'includes/header.php';
+require_once 'includes/classes/VideoDetailsFormProvider.php';
+
+if (!User::isLoggedIn()) {
+  header('Location: signin.php');
+}
+?>
 
 <div class="column">
 <?php

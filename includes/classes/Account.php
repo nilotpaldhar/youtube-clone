@@ -40,6 +40,39 @@ class Account {
     }
   }
 
+  public function updateDetails($fn, $ln, $em, $un) {
+    $this->validateFirstName($fn);
+    $this->validateLastName($ln);
+    $this->validateNewEmail($em, $un);
+
+    if (empty($this->errorArray)) {
+      $query = $this->con->prepare('UPDATE users SET firstName = :fn, lastName = :ln, email = :em
+                                    WHERE username = :un');
+      $query->bindParam(':fn', $fn);
+      $query->bindParam(':ln', $ln);
+      $query->bindParam(':em', $em);
+      $query->bindParam(':un', $un);
+      return $query->execute();
+    } else {
+      return false;
+    }
+  }
+
+  public function updatePassword($oldPw, $pw, $pw2, $un) {
+    $this->validateOldPassword($oldPw, $un);
+    $this->validatePassword($pw, $pw2);
+    $pw_hashed = hash('sha512', $pw);
+
+    if (empty($this->errorArray)) {
+      $query = $this->con->prepare('UPDATE users SET password = :pw WHERE username = :un');
+      $query->bindParam(':pw', $pw_hashed);
+      $query->bindParam(':un', $un);
+      return $query->execute();
+    } else {
+      return false;
+    }
+  }
+
   public function insertUserDetails($fn, $ln, $un, $em, $pw) {
     // Hashed password
     $pw_hashed = hash('sha512', $pw);
@@ -105,6 +138,22 @@ class Account {
     }
   }
 
+  private function validateNewEmail($em, $un) {
+    if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+      array_push($this->errorArray, Constants::$emailNotValid);
+      return;
+    }
+
+    $query = $this->con->prepare('SELECT email from users WHERE email = :em AND username != :un');
+    $query->bindParam(':em', $em);
+    $query->bindParam(':un', $un);
+    $query->execute();
+
+    if ($query->rowCount() > 0) {
+      array_push($this->errorArray, Constants::$emailTaken);
+    }
+  }
+
   private function validatePassword($pw, $pw2) {
     if ($pw != $pw2) {
       array_push($this->errorArray, Constants::$passwordsDoNotMatch);
@@ -122,11 +171,34 @@ class Account {
 
   }
 
+  private function validateOldPassword($oldPw, $un) {
+    // Hashed password
+    $pw_hashed = hash('sha512', $oldPw);
+
+    $query = $this->con->prepare('SELECT * FROM users WHERE username = :un AND password = :pw');
+    $query->bindParam(':un', $un);
+    $query->bindParam(':pw', $pw_hashed);
+    $query->execute();
+
+    if ($query->rowCount() == 0) {
+      array_push($this->errorArray, Constants::$passwordIncorrect);
+    }
+  }
+
   public function getError($error) {
     if (in_array($error, $this->errorArray)) {
       return "<small class='errorMessage'>$error</small>";
     }
   }
+
+  public function getFirstError() {
+    if (!empty($this->errorArray)) {
+      return $this->errorArray[0];
+    } else {
+      return '';
+    }
+  }
+
 }
 
 ?>
