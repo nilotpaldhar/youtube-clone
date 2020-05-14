@@ -13,6 +13,11 @@ if (!isset($_GET['id'])) {
 $video = new Video($con, $_GET['id'], $userLoggedInObj);
 $video->incrementViews();
 ?>
+
+<?php if (!$video->isExist($_GET['id'])): ?>
+  <h1 class='display-4 my-4'>VIDEO NOT FOUND!</h1>
+<?php else: ?>
+
 <script src="assets/js/videoPlayerActions.js"></script>
 <script src="assets/js/commentActions.js"></script>
 
@@ -36,6 +41,7 @@ $video->incrementViews();
       </div>
     </div>
   </div>
+<?php endif;?>
 
 
 <?php require_once 'includes/footer.php';?>

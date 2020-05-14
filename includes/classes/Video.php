@@ -97,6 +97,14 @@ class Video {
     return $this->sqlData['duration'];
   }
 
+  public function isExist($id) {
+    $query = $this->con->prepare("SELECT id FROM videos WHERE id = :id");
+    $query->bindParam(':id', $id);
+    $query->execute();
+
+    return ($query->fetchColumn() > 0) ? true : false;
+  }
+
   public function incrementViews() {
     $query = $this->con->prepare("UPDATE videos SET views = views + 1 WHERE id = :id");
     $query->bindParam(':id', $videoId);
