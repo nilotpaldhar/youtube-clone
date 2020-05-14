@@ -1,0 +1,11 @@
+{
+    "name": "nilotpal/videotube",
+    "description": "A clone of youtube website",
+    "authors": [
+        {
+            "name": "Nilotpal Dhar",
+            "email": "nilotpaldhar1997@gmail.com"
+        }
+    ],
+    "require": {}
+}
